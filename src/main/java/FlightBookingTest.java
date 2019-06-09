@@ -1,3 +1,4 @@
+import com.qa.base.Base;
 import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class FlightBookingTest {
+public class FlightBookingTest extends Base {
 
     WebDriver driver = new ChromeDriver();
 
@@ -54,24 +55,5 @@ public class FlightBookingTest {
         //close the browser
         driver.quit();
 
-    }
-
-
-    private void waitFor(int durationInMilliSeconds) {
-        try {
-            Thread.sleep(durationInMilliSeconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-    }
-
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
     }
 }
