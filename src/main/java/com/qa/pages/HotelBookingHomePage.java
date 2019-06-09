@@ -20,11 +20,13 @@ public class HotelBookingHomePage extends Base {
     @FindBy(linkText = "Hotels")
     public WebElement hotelLink;
 
+
     @FindBy(linkText = "Your trips")
     private WebElement options;
 
     @FindBy(id = "SignIn")
     private WebElement loginNavigation;
+
 
     public SearchHotelPage clickOnHotelBooking() {
         hotelLink.click();

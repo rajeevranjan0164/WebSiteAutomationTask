@@ -31,7 +31,6 @@ public class HotelBookingTest extends Base {
         initialization();
         hotelBookingHomePage = new HotelBookingHomePage();
         searchHotelPage = new SearchHotelPage();
-
     }
 
     @Test
