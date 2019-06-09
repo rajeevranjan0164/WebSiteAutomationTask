@@ -22,9 +22,6 @@ public class HotelBookingTest extends Base {
     HotelBookingHomePage hotelBookingHomePage;
     SearchHotelPage searchHotelPage;
 
-    @FindBy(id = "travellersOnhome")
-    private WebElement travellerSelection;
-
     public HotelBookingTest() {
         super();
     }

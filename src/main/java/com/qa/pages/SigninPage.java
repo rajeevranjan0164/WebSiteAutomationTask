@@ -1,11 +1,17 @@
 package com.qa.pages;
 
-import org.openqa.selenium.WebDriver;
+import com.qa.base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SigninPage {
+public class SigninPage extends Base {
+
+    @FindBy(id = "signInButton")
+    private WebElement loginButton;
+
+    @FindBy(id = "errors1")
+    private WebElement errorMessage;
 
     /**
      *
@@ -13,12 +19,21 @@ public class SigninPage {
      * Page Objects.
      */
 
-    public SigninPage(WebDriver driver) {
+    public SigninPage() {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(linkText = "Hotels")
-    private WebElement hotelLink;
+    public SigninPage clickOnLoginButton() {
+        driver.switchTo().frame("modal_window");
+        loginButton.click();
+        return this;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage.getText();
+    }
+
+
 }
 
 
