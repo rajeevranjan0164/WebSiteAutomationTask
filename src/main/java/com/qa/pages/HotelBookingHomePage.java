@@ -1,9 +1,11 @@
 package com.qa.pages;
 
-import org.openqa.selenium.WebDriver;
+import com.qa.base.Base;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HotelBookingHomePage {
+public class HotelBookingHomePage extends Base {
 
     /**
      *
@@ -11,7 +13,15 @@ public class HotelBookingHomePage {
      * Page Objects.
      */
 
-    public HotelBookingHomePage(WebDriver driver) {
+    public HotelBookingHomePage() {
         PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(linkText = "Hotels")
+    public WebElement hotelLink;
+
+    public SearchHotelPage clickOnHotelBooking() {
+        hotelLink.click();
+        return new SearchHotelPage();
     }
 }

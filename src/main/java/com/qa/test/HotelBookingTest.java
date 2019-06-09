@@ -1,55 +1,54 @@
 package com.qa.test;
 
+import com.qa.base.Base;
+import com.qa.pages.HotelBookingHomePage;
+import com.qa.pages.SearchHotelPage;
 import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class HotelBookingTest {
+import static com.qa.util.Utility.waitFor;
 
-    WebDriver driver = new ChromeDriver();
 
-    @FindBy(linkText = "Hotels")
-    private WebElement hotelLink;
+public class HotelBookingTest extends Base {
 
-    @FindBy(id = "Tags")
-    private WebElement localityTextBox;
-
-    @FindBy(id = "SearchHotelsButton")
-    private WebElement searchButton;
+    HotelBookingHomePage hotelBookingHomePage;
+    SearchHotelPage searchHotelPage;
 
     @FindBy(id = "travellersOnhome")
     private WebElement travellerSelection;
 
+    public HotelBookingTest() {
+        super();
+    }
+
+    @BeforeMethod
+    public void setUp() {
+        initialization();
+        hotelBookingHomePage = new HotelBookingHomePage();
+        searchHotelPage = new SearchHotelPage();
+
+    }
+
     @Test
     public void shouldBeAbleToSearchForHotels() {
-        setDriverPath();
+        hotelBookingHomePage.clickOnHotelBooking();
+        searchHotelPage.sendWhereToGo("Indiranagar, Bangalore");
+        waitFor(5000);
+        searchHotelPage.selectSearchResult();
+        searchHotelPage.clickOnSearchButton();
+        Assert.assertTrue(searchHotelPage.placeName.isDisplayed(), "Place Name is not displaying");
+    }
 
-        driver.get("https://www.cleartrip.com/");
-        hotelLink.click();
-
-        localityTextBox.sendKeys("Indiranagar, Bangalore");
-
-        new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
-        searchButton.click();
-
+    @AfterMethod
+    public void quit() {
         driver.quit();
-
     }
-
-    private void setDriverPath() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
-    }
-
 }

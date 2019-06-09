@@ -10,6 +10,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+import static com.qa.util.Utility.isElementPresent;
+import static com.qa.util.Utility.waitFor;
+
 public class FlightBookingTest extends Base {
 
     WebDriver driver = new ChromeDriver();
@@ -18,7 +21,7 @@ public class FlightBookingTest extends Base {
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
 
-        setDriverPath();
+        //setDriverPath();
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
         driver.findElement(By.id("OneWay")).click();

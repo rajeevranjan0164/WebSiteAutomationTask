@@ -51,7 +51,7 @@ public class Utility {
         return driver.findElements((By) locator);
     }
 
-    protected static void waitFor(int durationInMilliSeconds) {
+    public static void waitFor(int durationInMilliSeconds) {
         try {
             Thread.sleep(durationInMilliSeconds);
         } catch (InterruptedException e) {
@@ -60,7 +60,7 @@ public class Utility {
     }
 
 
-    protected static boolean isElementPresent(By by) {
+    public static boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;
