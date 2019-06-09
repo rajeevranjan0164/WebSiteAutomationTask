@@ -13,8 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class Base {
 
     public static WebDriver driver;
-
-
     public static Properties prop;
 
     public Base(){
