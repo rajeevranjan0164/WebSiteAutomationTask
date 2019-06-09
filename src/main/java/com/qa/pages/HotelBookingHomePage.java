@@ -37,6 +37,5 @@ public class HotelBookingHomePage extends Base {
         options.click();
         loginNavigation.click();
         return new SigninPage();
-
     }
 }

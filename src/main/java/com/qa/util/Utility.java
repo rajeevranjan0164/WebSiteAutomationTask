@@ -59,7 +59,6 @@ public class Utility {
         }
     }
 
-
     public static boolean isElementPresent(By by) {
         try {
             driver.findElement(by);

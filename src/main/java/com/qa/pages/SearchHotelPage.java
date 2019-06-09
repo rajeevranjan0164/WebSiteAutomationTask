@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SearchHotelPage extends Base {
 
-
     @FindAll({
             @FindBy(id = "Tags"),
             @FindBy(name = "from")

@@ -1,10 +1,8 @@
 package com.qa.base;
 
-import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,7 +16,6 @@ public class Base {
 
 
     public static Properties prop;
-    public  static EventFiringWebDriver e_driver;
 
     public Base(){
         try {
@@ -32,7 +29,6 @@ public class Base {
             e.printStackTrace();
         }
     }
-
 
     public static void initialization(){
         String browserName = prop.getProperty("browser");
