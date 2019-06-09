@@ -22,4 +22,3 @@ public class Base {
             driver = new ChromeDriver();
         }
     }
-}
